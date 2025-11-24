@@ -1,6 +1,5 @@
-import Video from "./video/fje.mp4";
-import Video2 from "./video/website.mp4";
 import React from "react";
+import Video2 from "./video/website.mp4";
 
 export const VideoSection = () => {
   return (
@@ -12,7 +11,6 @@ export const VideoSection = () => {
         overflow: "hidden",
         justifyContent: "end",
         width: "100%",
-        // paddingTop: "85px",
       }}
     >
       <style>

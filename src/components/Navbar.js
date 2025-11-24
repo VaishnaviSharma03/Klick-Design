@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Logo from "./img/Asset 2.png";
 import LOGO from "./img/logo.png";
 
 export const Navbar = () => {

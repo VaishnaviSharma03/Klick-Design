@@ -5,7 +5,6 @@ export const CreativeIdeasSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [numbers, setNumbers] = useState([0, 0, 0]);
 
-  // ✅ finalValues is now memoized and stable across renders
   const finalValues = useMemo(
     () => [
       { number: 6.2, text: "AVG. ENGAGEMENT RATE", suffix: "%" },
@@ -15,7 +14,6 @@ export const CreativeIdeasSection = () => {
     []
   );
 
-  // Intersection Observer — runs once on mount
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -25,14 +23,15 @@ export const CreativeIdeasSection = () => {
       { threshold: 0.5 }
     );
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+    const node = sectionRef.current;
+
+    if (node) observer.observe(node);
 
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
+      if (node) observer.unobserve(node);
     };
   }, []);
 
-  // Animate numbers whenever section becomes visible
   useEffect(() => {
     if (!isVisible) return;
 
@@ -57,12 +56,11 @@ export const CreativeIdeasSection = () => {
       return id;
     });
 
-    // cleanup when section leaves view or on unmount
     return () => {
       intervals.forEach((id) => clearInterval(id));
       setNumbers([0, 0, 0]);
     };
-  }, [isVisible, finalValues]); // ✅ finalValues is stable now, ESLint ok
+  }, [isVisible, finalValues]);
 
   return (
     <section className="creative-section" ref={sectionRef}>
