@@ -1,0 +1,144 @@
+@font-face {
+    font-family: 'Bison';
+    src: url('Bison-Light.eot');
+    src: local('Bison Light'), local('Bison-Light'),
+        url('Bison-Light.eot?#iefix') format('embedded-opentype'),
+        url('Bison-Light.woff2') format('woff2'),
+        url('Bison-Light.woff') format('woff'),
+        url('Bison-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bison Demi';
+    src: url('Bison-DemiBold.eot');
+    src: local('Bison Demi Bold'), local('Bison-DemiBold'),
+        url('Bison-DemiBold.eot?#iefix') format('embedded-opentype'),
+        url('Bison-DemiBold.woff2') format('woff2'),
+        url('Bison-DemiBold.woff') format('woff'),
+        url('Bison-DemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bison Demi Bold Itallic';
+    src: url('Bison-DemiBoldItallic.eot');
+    src: local('Bison Demi Bold Itallic'), local('Bison-DemiBoldItallic'),
+        url('Bison-DemiBoldItallic.eot?#iefix') format('embedded-opentype'),
+        url('Bison-DemiBoldItallic.woff2') format('woff2'),
+        url('Bison-DemiBoldItallic.woff') format('woff'),
+        url('Bison-DemiBoldItallic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Bison Thick Outline';
+    src: url('Bison-ThickOutline.eot');
+    src: local('Bison Thick Outline'), local('Bison-ThickOutline'),
+        url('Bison-ThickOutline.eot?#iefix') format('embedded-opentype'),
+        url('Bison-ThickOutline.woff2') format('woff2'),
+        url('Bison-ThickOutline.woff') format('woff'),
+        url('Bison-ThickOutline.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bison';
+    src: url('Bison-Bold.eot');
+    src: local('Bison Bold'), local('Bison-Bold'),
+        url('Bison-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Bison-Bold.woff2') format('woff2'),
+        url('Bison-Bold.woff') format('woff'),
+        url('Bison-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bison Bold Itallic';
+    src: url('Bison-BoldItallic.eot');
+    src: local('Bison Bold Itallic'), local('Bison-BoldItallic'),
+        url('Bison-BoldItallic.eot?#iefix') format('embedded-opentype'),
+        url('Bison-BoldItallic.woff2') format('woff2'),
+        url('Bison-BoldItallic.woff') format('woff'),
+        url('Bison-BoldItallic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Bison';
+    src: url('Bison-RegularItalic.eot');
+    src: local('Bison Italic'), local('Bison-RegularItalic'),
+        url('Bison-RegularItalic.eot?#iefix') format('embedded-opentype'),
+        url('Bison-RegularItalic.woff2') format('woff2'),
+        url('Bison-RegularItalic.woff') format('woff'),
+        url('Bison-RegularItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Bison';
+    src: url('Bison-LightItalic.eot');
+    src: local('Bison Light Italic'), local('Bison-LightItalic'),
+        url('Bison-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('Bison-LightItalic.woff2') format('woff2'),
+        url('Bison-LightItalic.woff') format('woff'),
+        url('Bison-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Bison Thick Outline Itallic';
+    src: url('Bison-ThickOutlineItallic.eot');
+    src: local('Bison Thick Outline Itallic'), local('Bison-ThickOutlineItallic'),
+        url('Bison-ThickOutlineItallic.eot?#iefix') format('embedded-opentype'),
+        url('Bison-ThickOutlineItallic.woff2') format('woff2'),
+        url('Bison-ThickOutlineItallic.woff') format('woff'),
+        url('Bison-ThickOutlineItallic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Bison Thin Outline Itallic';
+    src: url('Bison-ThinOutlineItallic.eot');
+    src: local('Bison Thin Outline Itallic'), local('Bison-ThinOutlineItallic'),
+        url('Bison-ThinOutlineItallic.eot?#iefix') format('embedded-opentype'),
+        url('Bison-ThinOutlineItallic.woff2') format('woff2'),
+        url('Bison-ThinOutlineItallic.woff') format('woff'),
+        url('Bison-ThinOutlineItallic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Bison Thin Outline';
+    src: url('Bison-ThinOutline.eot');
+    src: local('Bison Thin Outline'), local('Bison-ThinOutline'),
+        url('Bison-ThinOutline.eot?#iefix') format('embedded-opentype'),
+        url('Bison-ThinOutline.woff2') format('woff2'),
+        url('Bison-ThinOutline.woff') format('woff'),
+        url('Bison-ThinOutline.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bison';
+    src: url('Bison-Regular.eot');
+    src: local('Bison'), local('Bison-Regular'),
+        url('Bison-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Bison-Regular.woff2') format('woff2'),
+        url('Bison-Regular.woff') format('woff'),
+        url('Bison-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

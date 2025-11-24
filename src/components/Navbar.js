@@ -1,0 +1,114 @@
+import React, { useState, useEffect } from "react";
+import Logo from "./img/Asset 2.png";
+import LOGO from "./img/logo.png";
+
+export const Navbar = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  // detect mobile size
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const navItems = ["WORK", "SERVICE", "ABOUT US", "CONTACT US"];
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        width: "85%",
+      }}
+    >
+      {/* Logo (same, just smaller on mobile so header doesn't look huge) */}
+      <div>
+        <img
+          alt="Logo"
+          src={LOGO}
+          style={{ height: isMobile ? "55px" : "85px" }}
+        />
+      </div>
+
+      {/* DESKTOP MENU – EXACTLY YOUR ORIGINAL VIEW */}
+      {!isMobile && (
+        <div>
+          <ul style={{ display: "flex", alignItems: "center", gap: "30px" }}>
+            {navItems.map((item) => (
+              <li
+                key={item}
+                style={{ listStyle: "none", color: "white", cursor: "pointer" }}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* MOBILE – HAMBURGER + DROPDOWN */}
+      {isMobile && (
+        <div style={{ position: "relative" }}>
+          {/* hamburger button */}
+          <button
+            onClick={() => setIsOpen((prev) => !prev)}
+            style={{
+              background: "none",
+              border: "none",
+              color: "white",
+              fontSize: "22px",
+              cursor: "pointer",
+              padding: 0,
+            }}
+          >
+            &#9776; {/* ☰ */}
+          </button>
+
+          {/* menu when open */}
+          {isOpen && (
+            <div
+              style={{
+                position: "absolute",
+                right: 0,
+                marginTop: "8px",
+                backgroundColor: "black",
+                padding: "10px 14px",
+                borderRadius: "4px",
+              }}
+            >
+              <ul
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "8px",
+                  margin: 0,
+                  padding: 0,
+                }}
+              >
+                {navItems.map((item) => (
+                  <li
+                    key={item}
+                    style={{
+                      listStyle: "none",
+                      color: "white",
+                      cursor: "pointer",
+                      fontSize: "14px",
+                    }}
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};

@@ -1,0 +1,18 @@
+body {
+  font-family: 'sans-serif', sans-serif;
+  padding: 0px !important;
+  margin: 0px !important;
+  background: #fef9ee;
+  overflow: scroll;
+  height: auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+}
