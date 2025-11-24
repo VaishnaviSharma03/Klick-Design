@@ -1,18 +1,21 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 
 export const CreativeIdeasSection = () => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
-
-  const finalValues = [
-    { number: 6.2, text: "AVG. ENGAGEMENT RATE", suffix: "%" },
-    { number: 91, text: "TRUSTED FOR THE LONG RUN", suffix: "%" },
-    { number: 14, text: "REACH THAT CONNECTS", suffix: "M+" },
-  ];
-
   const [numbers, setNumbers] = useState([0, 0, 0]);
 
-  // 👇 Intersection Observer — runs every time section appears
+  // ✅ finalValues is now memoized and stable across renders
+  const finalValues = useMemo(
+    () => [
+      { number: 6.2, text: "AVG. ENGAGEMENT RATE", suffix: "%" },
+      { number: 91, text: "TRUSTED FOR THE LONG RUN", suffix: "%" },
+      { number: 14, text: "REACH THAT CONNECTS", suffix: "M+" },
+    ],
+    []
+  );
+
+  // Intersection Observer — runs once on mount
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -23,37 +26,43 @@ export const CreativeIdeasSection = () => {
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
+
     return () => {
       if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
   }, []);
 
-  // 👇 Animate numbers whenever section becomes visible
+  // Animate numbers whenever section becomes visible
   useEffect(() => {
     if (!isVisible) return;
 
     const intervals = finalValues.map((item, i) => {
       let current = 0;
-      return setInterval(() => {
+
+      const id = setInterval(() => {
         current += Math.random() * (item.number / 8);
+
         if (current >= item.number) {
           current = item.number;
-          clearInterval(intervals[i]);
+          clearInterval(id);
         }
+
         setNumbers((prev) => {
           const updated = [...prev];
           updated[i] = parseFloat(current.toFixed(1));
           return updated;
         });
       }, 60);
+
+      return id;
     });
 
-    // Reset numbers when section leaves view
+    // cleanup when section leaves view or on unmount
     return () => {
-      intervals.forEach((int) => clearInterval(int));
+      intervals.forEach((id) => clearInterval(id));
       setNumbers([0, 0, 0]);
     };
-  }, [isVisible]);
+  }, [isVisible, finalValues]); // ✅ finalValues is stable now, ESLint ok
 
   return (
     <section className="creative-section" ref={sectionRef}>
@@ -62,7 +71,6 @@ export const CreativeIdeasSection = () => {
           width: 85%;
           position: relative;
           z-index: 1;
-          // background: beige;
           margin: 0 auto;
         }
         .creative-container {
@@ -124,13 +132,15 @@ export const CreativeIdeasSection = () => {
           font-weight: 400;
           letter-spacing: 0.5px;
         }
+
         @media (max-width: 768px) {
-    section > div:last-child {
-        order: 1;
-        width: 100% !important;
-         height: 100% !important;
-    }
-}
+          section > div:last-child {
+            order: 1;
+            width: 100% !important;
+            height: 100% !important;
+          }
+        }
+
         @media (min-width: 769px) {
           .creative-container {
             align-items: stretch;
@@ -152,7 +162,7 @@ export const CreativeIdeasSection = () => {
           .creative-heading {
             font-size: 84px;
             margin: 0;
-            color:#333333
+            color: #333333;
           }
           .creative-boxes {
             grid-template-columns: repeat(3, 1fr);

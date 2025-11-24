@@ -1,6 +1,5 @@
 import { Header } from "./components/Header";
 import { VideoSection } from "./components/VideoSection";
-import { Clients } from "./components/Clients";
 import { WhyChooseUs } from "./components/WhyChooseUs";
 import { CreativeIdeasSection } from "./components/CreativeIdeasSection";
 import { AboutUs } from "./components/AboutUs";

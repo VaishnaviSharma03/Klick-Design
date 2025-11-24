@@ -1,5 +1,5 @@
 // src/components/CaseStudySection.jsx
-import React, { useState, useEffect } from "react"; // ⬅️ added useEffect
+import React, { useState, useEffect, useCallback } from "react"; // ⬅️ useCallback added
 import Img1 from "./img/Img-03 (1).jpg";
 import Img2 from "./img/Img-02.jpg";
 import Img3 from "./img/Img-03.jpg";
@@ -35,9 +35,10 @@ export const ProductSwiper = () => {
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = slides.length;
 
-  const handleNext = () => {
+  // ✅ stable handleNext
+  const handleNext = useCallback(() => {
     setActiveStep((prev) => (prev + 1) % maxSteps);
-  };
+  }, [maxSteps]);
 
   const handleBack = () => {
     setActiveStep((prev) => (prev - 1 + maxSteps) % maxSteps);
@@ -47,15 +48,14 @@ export const ProductSwiper = () => {
     setActiveStep(index);
   };
 
-  // ⬇️ NEW: auto-slide effect
+  // ✅ auto-slide effect with correct dependency
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 2000); // 4000ms = 4 seconds, adjust if you want faster/slower
+    }, 2000); // 2 seconds
 
-    return () => clearInterval(interval); // cleanup
-  }, [maxSteps]);
-  // dependency doesn't include handleNext to avoid recreating interval on every render
+    return () => clearInterval(interval);
+  }, [handleNext]); // eslint is happy now
 
   return (
     <Box
@@ -77,7 +77,7 @@ export const ProductSwiper = () => {
           flexDirection: { xs: "column", md: "row" },
         }}
       >
-        {/* TEXT RIGHT */}
+        {/* TEXT LEFT (your “right” visually but first in DOM) */}
         <Box
           sx={{
             flex: { xs: 1, md: 2 },
@@ -147,6 +147,7 @@ export const ProductSwiper = () => {
             </ul>
           </Box>
         </Box>
+
         {/* VERTICAL LINE */}
         <Box
           sx={{
@@ -155,7 +156,8 @@ export const ProductSwiper = () => {
             bgcolor: "#d5c9aa",
           }}
         />
-        {/* IMAGE LEFT */}
+
+        {/* IMAGE RIGHT */}
         <Box
           sx={{
             flex: { xs: 1, md: 3 },
@@ -178,9 +180,9 @@ export const ProductSwiper = () => {
               alt={`Slide ${activeStep + 1}`}
               sx={{
                 width: "100%",
-                height: "auto", // auto height, no crop
+                height: "auto",
                 display: "block",
-                objectFit: "contain", // whole image visible
+                objectFit: "contain",
               }}
             />
 

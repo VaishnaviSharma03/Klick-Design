@@ -1,5 +1,4 @@
-// src/components/CaseStudySection.jsx
-import React, { useState, useEffect } from "react"; // ⬅️ added useEffect
+import React, { useState, useEffect, useCallback } from "react";
 import Img1 from "./img/Img-03 (1).jpg";
 import Img2 from "./img/Img-02.jpg";
 import Img3 from "./img/Img-03.jpg";
@@ -35,9 +34,10 @@ export const DesignSwiper = () => {
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = slides.length;
 
-  const handleNext = () => {
+  // ✅ make handleNext stable using useCallback
+  const handleNext = useCallback(() => {
     setActiveStep((prev) => (prev + 1) % maxSteps);
-  };
+  }, [maxSteps]);
 
   const handleBack = () => {
     setActiveStep((prev) => (prev - 1 + maxSteps) % maxSteps);
@@ -47,15 +47,14 @@ export const DesignSwiper = () => {
     setActiveStep(index);
   };
 
-  // ⬇️ NEW: auto-slide effect
+  // ✅ auto-slide effect with correct deps
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 4000); // 4000ms = 4 seconds, adjust if you want faster/slower
+    }, 2000);
 
-    return () => clearInterval(interval); // cleanup
-  }, [maxSteps]);
-  // dependency doesn't include handleNext to avoid recreating interval on every render
+    return () => clearInterval(interval);
+  }, [handleNext]);
 
   return (
     <Box
@@ -100,9 +99,9 @@ export const DesignSwiper = () => {
               alt={`Slide ${activeStep + 1}`}
               sx={{
                 width: "100%",
-                height: "auto", // auto height, no crop
+                height: "auto",
                 display: "block",
-                objectFit: "contain", // whole image visible
+                objectFit: "contain",
               }}
             />
 
