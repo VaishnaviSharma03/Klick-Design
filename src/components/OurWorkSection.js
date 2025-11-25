@@ -19,7 +19,6 @@ export const OurWorkSection = () => {
 
   const containerStyle = {
     width: "85%",
-    // padding: "40px  0 0px 0",
     backgroundColor: "beige",
     fontFamily: "Arial, sans-serif",
   };
@@ -34,9 +33,8 @@ export const OurWorkSection = () => {
 
   const imageContainerStyle = {
     width: "100%",
-    aspectRatio: "1", // Square shape
+    aspectRatio: "1",
     overflow: "hidden",
-    // borderRadius: "8px",
   };
 
   const imageStyle = {

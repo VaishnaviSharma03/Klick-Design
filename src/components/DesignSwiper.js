@@ -1,16 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
-import Img1 from "./img/Img-03 (1).jpg";
-import Img2 from "./img/Img-02.jpg";
-import Img3 from "./img/Img-03.jpg";
-import Img4 from "./img/Img-04.jpg";
-import Img5 from "./img/Img-05.jpg";
-import Img6 from "./img/Img-06.jpg";
-import Img7 from "./img/Img-07.jpg";
-import Img8 from "./img/Img-08.jpg";
-import Img9 from "./img/Img-09.jpg";
-import Img10 from "./img/Img-10.jpg";
-import Img11 from "./img/Img-11.jpg";
-import Img12 from "./img/Img-12.jpg";
+import Img1 from "./img/Design-01.jpg";
+import Img2 from "./img/Design-02.jpg";
+import Img3 from "./img/Design-03.jpg";
+import Img4 from "./img/Design-04.jpg";
+import Img5 from "./img/Design-05.jpg";
+import Img6 from "./img/Design-06.jpg";
+import Img7 from "./img/Design-07.jpg";
+import Img8 from "./img/Design-08.jpg";
+import Img9 from "./img/Design-09.jpg";
+import Img10 from "./img/Design-10.jpg";
 import { Box, Typography, IconButton } from "@mui/material";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
@@ -26,15 +24,12 @@ const slides = [
   { id: 8, img: Img8 },
   { id: 9, img: Img9 },
   { id: 10, img: Img10 },
-  { id: 11, img: Img11 },
-  { id: 12, img: Img12 },
 ];
 
 export const DesignSwiper = () => {
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = slides.length;
 
-  // ✅ make handleNext stable using useCallback
   const handleNext = useCallback(() => {
     setActiveStep((prev) => (prev + 1) % maxSteps);
   }, [maxSteps]);
@@ -47,7 +42,6 @@ export const DesignSwiper = () => {
     setActiveStep(index);
   };
 
-  // ✅ auto-slide effect with correct deps
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
@@ -66,7 +60,6 @@ export const DesignSwiper = () => {
         boxSizing: "border-box",
       }}
     >
-      {/* OUTER BORDER */}
       <Box
         sx={{
           width: "100%",
@@ -76,7 +69,6 @@ export const DesignSwiper = () => {
           flexDirection: { xs: "column", md: "row" },
         }}
       >
-        {/* IMAGE LEFT */}
         <Box
           sx={{
             flex: { xs: 1, md: 3 },
@@ -105,7 +97,6 @@ export const DesignSwiper = () => {
               }}
             />
 
-            {/* left arrow */}
             <IconButton
               onClick={handleBack}
               sx={{
@@ -120,7 +111,6 @@ export const DesignSwiper = () => {
               <KeyboardArrowLeft sx={{ color: "#555" }} />
             </IconButton>
 
-            {/* right arrow */}
             <IconButton
               onClick={handleNext}
               sx={{
@@ -135,7 +125,6 @@ export const DesignSwiper = () => {
               <KeyboardArrowRight sx={{ color: "#555" }} />
             </IconButton>
 
-            {/* dots */}
             <Box
               sx={{
                 position: "absolute",
@@ -163,7 +152,6 @@ export const DesignSwiper = () => {
           </Box>
         </Box>
 
-        {/* VERTICAL LINE */}
         <Box
           sx={{
             display: { xs: "none", md: "block" },
@@ -172,7 +160,6 @@ export const DesignSwiper = () => {
           }}
         />
 
-        {/* TEXT RIGHT */}
         <Box
           sx={{
             flex: { xs: 1, md: 2 },
@@ -192,7 +179,7 @@ export const DesignSwiper = () => {
               fontSize: { xs: 22, md: 30 },
             }}
           >
-            AKOYA JEWELS
+            BRAND DESIGN THAT STANDS OUT
           </Typography>
 
           <Typography
@@ -203,9 +190,9 @@ export const DesignSwiper = () => {
               mb: 4,
             }}
           >
-            CAMPAIGN SHOOT
+            BRAND IDENTITY DESIGN
             <br />
-            PRODUCT SHOOT
+            CAMPAIGN DESIGN
           </Typography>
 
           <Box>
@@ -229,15 +216,18 @@ export const DesignSwiper = () => {
               }}
             >
               <li>
-                CREATED VISUALLY STRIKING CONTENT THAT BOOSTED ONLINE ENGAGEMENT
-              </li>
-              <li>CAPTURED PRODUCT DETAILS TO DRIVE MORE CUSTOMER INTEREST</li>
-              <li>
-                HELPED BRING MORE TRAFFIC TO THE WEBSITE THROUGH STRONG VISUALS
+                CREATED VISUALLY STRIKING LAYOUTS THAT BOOSTED ONLINE ENGAGEMENT
               </li>
               <li>
-                STRENGTHENED THE BRAND&apos;S IMAGE AMONG PREMIUM JEWELLERY
-                BUYERS
+                DESIGNED CLEAN, MODERN VISUALS THAT MADE BRANDS LOOK PREMIUM
+              </li>
+              <li>
+                CRAFTED HIGH-IMPACT VISUALS THAT STOPPED SCROLLS AND SPARKED
+                CLICKS
+              </li>
+              <li>
+                HELPED BRANDS COMMUNICATE THEIR STORY FASTER AND MORE
+                EFFECTIVELY
               </li>
             </ul>
           </Box>

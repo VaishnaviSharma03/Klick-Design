@@ -1,6 +1,4 @@
 import React from "react";
-import { BiFontFamily } from "react-icons/bi";
-
 export const WhyChooseUs = ({ text }) => {
   const sectionStyle = {
     backgroundColor: "#333333",

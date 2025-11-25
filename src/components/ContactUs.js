@@ -1,7 +1,3 @@
-// const SERVICE_ID =  "service_mpuni6a";
-// const TEMPLATE_ID = "template_9a77f1s";
-// const PUBLIC_KEY  =  "Z6leBvTLu9gyVEA0B";
-
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import Phone from "../components/img/Phone.jpg";
@@ -16,7 +12,6 @@ import {
   Button,
 } from "@mui/material";
 
-// 👉 your services list
 const servicesList = [
   "Social Media Management",
   "Content Creation",
@@ -41,13 +36,11 @@ export const ContactUs = () => {
 
   const [loading, setLoading] = useState(false);
 
-  // handle text fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  // handle services checkboxes
   const handleServiceChange = (e) => {
     const { value, checked } = e.target;
     setForm((prev) => {
@@ -67,7 +60,6 @@ export const ContactUs = () => {
 
     setLoading(true);
 
-    // data we send to EmailJS – keys must match your template variables
     const templateParams = {
       name: form.name,
       email: form.email,
@@ -108,7 +100,6 @@ export const ContactUs = () => {
         gap: { xs: 3, md: 6 },
       }}
     >
-      {/* IMAGE – first on mobile, right on desktop */}
       <Grid item xs={12} md={5} sx={{ order: { xs: 1, md: 2 } }}>
         <Box
           sx={{
@@ -124,13 +115,10 @@ export const ContactUs = () => {
               width: "100%",
               maxWidth: "400px",
               height: "auto",
-              // borderRadius: "8px",
             }}
           />
         </Box>
       </Grid>
-
-      {/* FORM – second on mobile, left on desktop */}
       <Grid item xs={12} md={7} sx={{ order: { xs: 2, md: 1 } }}>
         <Typography
           variant="subtitle2"

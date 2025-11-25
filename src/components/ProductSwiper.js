@@ -35,7 +35,6 @@ export const ProductSwiper = () => {
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = slides.length;
 
-  // ✅ stable handleNext
   const handleNext = useCallback(() => {
     setActiveStep((prev) => (prev + 1) % maxSteps);
   }, [maxSteps]);
@@ -48,14 +47,13 @@ export const ProductSwiper = () => {
     setActiveStep(index);
   };
 
-  // ✅ auto-slide effect with correct dependency
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 2000); // 2 seconds
+    }, 2000);
 
     return () => clearInterval(interval);
-  }, [handleNext]); // eslint is happy now
+  }, [handleNext]);
 
   return (
     <Box
@@ -67,7 +65,6 @@ export const ProductSwiper = () => {
         boxSizing: "border-box",
       }}
     >
-      {/* OUTER BORDER */}
       <Box
         sx={{
           width: "100%",
@@ -77,7 +74,6 @@ export const ProductSwiper = () => {
           flexDirection: { xs: "column", md: "row" },
         }}
       >
-        {/* TEXT LEFT (your “right” visually but first in DOM) */}
         <Box
           sx={{
             flex: { xs: 1, md: 2 },
@@ -97,7 +93,7 @@ export const ProductSwiper = () => {
               fontSize: { xs: 22, md: 30 },
             }}
           >
-            AKOYA JEWELS
+            SHOOTS THAT BRING BRANDS TO LIFE
           </Typography>
 
           <Typography
@@ -134,11 +130,16 @@ export const ProductSwiper = () => {
               }}
             >
               <li>
-                CREATED VISUALLY STRIKING CONTENT THAT BOOSTED ONLINE ENGAGEMENT
+                CREATED HIGH IMPACT VISUALS THAT BOOSTED BRAND RECALL AND ONLINE
+                ENGAGEMENT
               </li>
-              <li>CAPTURED PRODUCT DETAILS TO DRIVE MORE CUSTOMER INTEREST</li>
               <li>
-                HELPED BRING MORE TRAFFIC TO THE WEBSITE THROUGH STRONG VISUALS
+                CAPTURED PRODUCT DETAILS THAT BUILT TRUST AND INCREASE PURCHASE
+                INTENT{" "}
+              </li>
+              <li>
+                PRODUCED VERSATILE ASSETS FOR WEBSITES, MARKETPLACE AND SOCIAL
+                MEDIA
               </li>
               <li>
                 STRENGTHENED THE BRAND&apos;S IMAGE AMONG PREMIUM JEWELLERY
@@ -148,7 +149,6 @@ export const ProductSwiper = () => {
           </Box>
         </Box>
 
-        {/* VERTICAL LINE */}
         <Box
           sx={{
             display: { xs: "none", md: "block" },
@@ -157,7 +157,6 @@ export const ProductSwiper = () => {
           }}
         />
 
-        {/* IMAGE RIGHT */}
         <Box
           sx={{
             flex: { xs: 1, md: 3 },
@@ -186,7 +185,6 @@ export const ProductSwiper = () => {
               }}
             />
 
-            {/* left arrow */}
             <IconButton
               onClick={handleBack}
               sx={{
@@ -201,7 +199,6 @@ export const ProductSwiper = () => {
               <KeyboardArrowLeft sx={{ color: "#555" }} />
             </IconButton>
 
-            {/* right arrow */}
             <IconButton
               onClick={handleNext}
               sx={{
@@ -216,7 +213,6 @@ export const ProductSwiper = () => {
               <KeyboardArrowRight sx={{ color: "#555" }} />
             </IconButton>
 
-            {/* dots */}
             <Box
               sx={{
                 position: "absolute",

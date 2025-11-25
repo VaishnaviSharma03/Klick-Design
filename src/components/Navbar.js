@@ -5,7 +5,6 @@ export const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  // detect mobile size
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -26,7 +25,6 @@ export const Navbar = () => {
         width: "85%",
       }}
     >
-      {/* Logo (same, just smaller on mobile so header doesn't look huge) */}
       <div>
         <img
           alt="Logo"
@@ -35,7 +33,6 @@ export const Navbar = () => {
         />
       </div>
 
-      {/* DESKTOP MENU – EXACTLY YOUR ORIGINAL VIEW */}
       {!isMobile && (
         <div>
           <ul style={{ display: "flex", alignItems: "center", gap: "30px" }}>
@@ -51,10 +48,8 @@ export const Navbar = () => {
         </div>
       )}
 
-      {/* MOBILE – HAMBURGER + DROPDOWN */}
       {isMobile && (
         <div style={{ position: "relative" }}>
-          {/* hamburger button */}
           <button
             onClick={() => setIsOpen((prev) => !prev)}
             style={{
@@ -69,7 +64,6 @@ export const Navbar = () => {
             &#9776; {/* ☰ */}
           </button>
 
-          {/* menu when open */}
           {isOpen && (
             <div
               style={{

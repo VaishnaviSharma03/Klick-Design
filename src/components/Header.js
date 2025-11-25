@@ -7,7 +7,6 @@ export const Header = () => {
     <header
       style={{
         background: "#333333",
-        // padding: "10px",
         paddingTop: "10px",
         paddingBottom: "10px",
         width: "100%",

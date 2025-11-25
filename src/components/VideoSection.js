@@ -54,7 +54,6 @@ export const VideoSection = () => {
         `}
       </style>
 
-      {/* Left Content */}
       <div
         style={{
           flex: "0 0 32.5%",
@@ -106,7 +105,6 @@ export const VideoSection = () => {
         </small>
       </div>
 
-      {/* Video Section */}
       <div style={{ flex: "0 0 60%", position: "relative" }}>
         <video
           src={Video2}

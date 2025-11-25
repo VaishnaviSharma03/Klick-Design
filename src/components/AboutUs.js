@@ -18,8 +18,6 @@ export const AboutUs = () => {
     justifyContent: "space-between",
     width: isMobile ? "85%" : "85%",
     margin: "0 auto",
-    // fontFamily: "Arial, sans-serif",
-    // padding: isMobile ? "20px 15px" : "60px 40px",
     boxSizing: "border-box",
     gap: isMobile ? "30px" : "0",
   };
@@ -53,7 +51,6 @@ export const AboutUs = () => {
 
   const imageStyle = {
     width: isMobile ? "100%" : "85%",
-    // maxWidth: "500px",
     maxHeight: "600px",
     height: "auto",
     borderRadius: "8px",
