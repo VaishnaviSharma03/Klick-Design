@@ -57,7 +57,7 @@ export const AboutUs = () => {
   };
 
   return (
-    <div style={containerStyle} id="#AboutUs">
+    <div style={containerStyle} id="AboutUs">
       <div style={textSectionStyle}>
         <div style={headingStyle}>
           WE ARE A PASSIONATE TEAM OF GRAPHIC DESIGNERS AND EDITORS..

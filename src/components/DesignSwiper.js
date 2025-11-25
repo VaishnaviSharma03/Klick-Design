@@ -52,6 +52,7 @@ export const DesignSwiper = () => {
 
   return (
     <Box
+      id="Work"
       sx={{
         width: "85%",
         bgcolor: "#f4eedf",

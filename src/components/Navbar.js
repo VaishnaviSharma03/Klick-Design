@@ -15,6 +15,7 @@ export const Navbar = () => {
   }, []);
 
   const navItems = ["WORK", "SERVICE", "ABOUT US", "CONTACT US"];
+  const ids = ["#Work", "#Service", "#AboutUs", "#ContactUs"];
 
   return (
     <div
@@ -33,21 +34,35 @@ export const Navbar = () => {
         />
       </div>
 
+      {/* Desktop Menu */}
       {!isMobile && (
         <div>
           <ul style={{ display: "flex", alignItems: "center", gap: "30px" }}>
-            {navItems.map((item) => (
-              <li
+            {navItems.map((item, index) => (
+              <a
                 key={item}
-                style={{ listStyle: "none", color: "white", cursor: "pointer" }}
+                href={ids[index]}
+                style={{
+                  textDecoration: "none",
+                  border: "none",
+                }}
               >
-                {item}
-              </li>
+                <li
+                  style={{
+                    listStyle: "none",
+                    color: "white",
+                    cursor: "pointer",
+                  }}
+                >
+                  {item}
+                </li>
+              </a>
             ))}
           </ul>
         </div>
       )}
 
+      {/* Mobile Menu */}
       {isMobile && (
         <div style={{ position: "relative" }}>
           <button
@@ -84,18 +99,24 @@ export const Navbar = () => {
                   padding: 0,
                 }}
               >
-                {navItems.map((item) => (
-                  <li
+                {navItems.map((item, index) => (
+                  <a
                     key={item}
-                    style={{
-                      listStyle: "none",
-                      color: "white",
-                      cursor: "pointer",
-                      fontSize: "14px",
-                    }}
+                    href={ids[index]}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                    onClick={() => setIsOpen(false)} // close menu on click
                   >
-                    {item}
-                  </li>
+                    <li
+                      style={{
+                        listStyle: "none",
+                        color: "white",
+                        cursor: "pointer",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {item}
+                    </li>
+                  </a>
                 ))}
               </ul>
             </div>

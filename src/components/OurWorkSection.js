@@ -47,7 +47,7 @@ export const OurWorkSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <div style={containerStyle} id="Work">
+    <div style={containerStyle}>
       <div style={gridStyle}>
         {works.map((item, index) => (
           <div

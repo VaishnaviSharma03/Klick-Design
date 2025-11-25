@@ -32,7 +32,7 @@ const SERVICES = [
   },
 ];
 
-export const ServicesAccordion = () => {
+export const ServicesAccordion = ({ id }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [heights, setHeights] = useState([]);
   const contentRefs = useRef([]);

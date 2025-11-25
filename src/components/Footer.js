@@ -56,8 +56,17 @@ export const Footer = () => {
           >
             <FacebookIcon size={30} color="#2c2c2c"></FacebookIcon>
           </a>
-
-          <LinkedInIcon size={30} color="#2c2c2c"></LinkedInIcon>
+          <a
+            href="https://www.linkedin.com/in/kirti-sharma-28929b399/"
+            style={{
+              textStyle: "none",
+              color: "black",
+              textDecoration: "none",
+              border: "none",
+            }}
+          >
+            <LinkedInIcon size={30} color="#2c2c2c"></LinkedInIcon>
+          </a>
         </div>
       </div>
     </div>

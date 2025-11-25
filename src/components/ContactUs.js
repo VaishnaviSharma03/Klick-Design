@@ -91,6 +91,7 @@ export const ContactUs = () => {
 
   return (
     <Box
+      id="ContactUs"
       sx={{
         width: "85%",
         display: "flex",
